@@ -9,7 +9,7 @@ import (
 func main() {
 	r := gin.Default()
 	// Load HTML templates from the "templates" directory
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("templates/**/*")
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello, Golang Gin!")
 	})
@@ -37,7 +37,7 @@ func main() {
 	})
 
 	r.GET("/news", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "news.html", gin.H{
+		c.HTML(http.StatusOK, "default/news.html", gin.H{
 			"title": "最新新闻",
 		})
 	})
