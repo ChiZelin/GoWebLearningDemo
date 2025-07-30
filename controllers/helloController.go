@@ -1,6 +1,7 @@
 package api
 
 import (
+	"GoWebLearningDemos/models"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -17,6 +18,8 @@ func (con HelloController) SayHello(c *gin.Context) {
 		username = "unknown"
 	}
 	c.String(200, "Hello, this is v1 API! Username: %s", username)
+
+	fmt.Println(models.UnixToTime(1629788576)) // Example usage of a model function
 	fmt.Println("SayHello method called")
 }
 
