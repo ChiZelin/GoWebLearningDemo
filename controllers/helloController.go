@@ -12,7 +12,11 @@ type HelloController struct {
 
 func (con HelloController) SayHello(c *gin.Context) {
 	con.Success(c)
-	c.String(200, "Hello, this is v1 API!")
+	username, exists := c.Get("username")
+	if !exists {
+		username = "unknown"
+	}
+	c.String(200, "Hello, this is v1 API! Username: %s", username)
 	fmt.Println("SayHello method called")
 }
 

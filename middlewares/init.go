@@ -46,6 +46,8 @@ func GlobalInitMiddlewares(c *gin.Context) {
 func GrouplInitMiddlewares(c *gin.Context) {
 	fmt.Println("Initializing Group middlewares...")
 
+	c.Set("username", "testuser") // Example of setting a value in the context
+
 	c.Next() // Call the next handler in the chain
 
 	//c.Abort() // Abort the chain to prevent further handlers from executing
