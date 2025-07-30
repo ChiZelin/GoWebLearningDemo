@@ -48,6 +48,12 @@ func GrouplInitMiddlewares(c *gin.Context) {
 
 	c.Set("username", "testuser") // Example of setting a value in the context
 
+	cCp := c.Copy() // Create a copy of the context for use in the middleware
+	go func() {
+		time.Sleep(2 * time.Second) // Simulate some processing delay
+		fmt.Println("Done! in path:", cCp.Request.URL.Path)
+	}()
+
 	c.Next() // Call the next handler in the chain
 
 	//c.Abort() // Abort the chain to prevent further handlers from executing
