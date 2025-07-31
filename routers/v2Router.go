@@ -20,5 +20,9 @@ func V2Router(r *gin.Engine) {
 		v2Router.GET("/ping", api.ResourceController{}.Pong)
 
 		v2Router.GET("/news", api.ResourceController{}.News)
+
+		v2Router.GET("/file/form", api.ResourceController{}.Form)
+
+		v2Router.POST("/user/doUpload", api.ResourceController{}.DoUpload)
 	}
 }
