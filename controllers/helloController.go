@@ -12,6 +12,9 @@ type HelloController struct {
 }
 
 func (con HelloController) SayHello(c *gin.Context) {
+
+	c.SetCookie("username", "cookietest", 3600, "/", "localhost", false, false)
+
 	con.Success(c)
 	username, exists := c.Get("username")
 	if !exists {
@@ -24,5 +27,9 @@ func (con HelloController) SayHello(c *gin.Context) {
 }
 
 func (con HelloController) HelloGin(c *gin.Context) {
-	c.String(200, "Hello, Golang Gin!")
+
+	username, _ := c.Cookie("username")
+
+	c.String(200, "Hello, Golang Gin!\n")
+	c.String(200, "cookie="+username)
 }
