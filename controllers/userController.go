@@ -22,7 +22,9 @@ func (con UserController) Index(c *gin.Context) {
 
 	userList := []models.Usertable{}
 
-	models.DB.Find(&userList)
+	//models.DB.Find(&userList)
+
+	models.DB.Where("age>29").Find(&userList)
 
 	c.JSON(http.StatusOK, gin.H{
 		"result": userList,
