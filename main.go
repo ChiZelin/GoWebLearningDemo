@@ -2,6 +2,7 @@ package main
 
 import (
 	"GoWebLearningDemos/middlewares"
+	"GoWebLearningDemos/models"
 	"GoWebLearningDemos/routers"
 
 	"github.com/gin-contrib/sessions"
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	models.InitDB()
 	r := gin.Default()
 	// Load HTML templates from the "templates" directory
 	r.LoadHTMLGlob("templates/**/*")

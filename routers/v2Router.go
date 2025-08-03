@@ -9,20 +9,20 @@ import (
 func V2Router(r *gin.Engine) {
 	v2Router := r.Group("/v2")
 	{
-		v2Router.GET("/resource", api.ResourceController{}.Index)
+		v2Router.GET("/resource", api.UserController{}.Index)
 
-		v2Router.POST("/resource", api.ResourceController{}.Add)
+		v2Router.POST("/resource", api.UserController{}.Add)
 
-		v2Router.PUT("/resource", api.ResourceController{}.Edit)
+		v2Router.PUT("/resource", api.UserController{}.Edit)
 
-		v2Router.DELETE("/resource", api.ResourceController{}.Delete)
+		v2Router.DELETE("/resource", api.UserController{}.Delete)
 
-		v2Router.GET("/ping", api.ResourceController{}.Pong)
+		v2Router.GET("/ping", api.UserController{}.Pong)
 
-		v2Router.GET("/news", api.ResourceController{}.News)
+		v2Router.GET("/news", api.UserController{}.News)
 
-		v2Router.GET("/file/form", api.ResourceController{}.Form)
+		v2Router.GET("/file/form", api.UserController{}.Form)
 
-		v2Router.POST("/user/doUpload", api.ResourceController{}.DoUpload)
+		v2Router.POST("/user/doUpload", api.UserController{}.DoUpload)
 	}
 }

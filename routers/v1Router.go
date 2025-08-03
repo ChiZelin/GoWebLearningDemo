@@ -1,7 +1,7 @@
 package routers
 
 import (
-	api "GoWebLearningDemos/controllers"
+	"GoWebLearningDemos/controllers"
 	"GoWebLearningDemos/middlewares"
 
 	"github.com/gin-gonic/gin"
