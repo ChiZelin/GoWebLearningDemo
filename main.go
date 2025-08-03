@@ -5,7 +5,7 @@ import (
 	"GoWebLearningDemos/routers"
 
 	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
+	"github.com/gin-contrib/sessions/redis"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,7 +16,10 @@ func main() {
 	r.Use(middlewares.GlobalInitMiddlewares)
 
 	//配置session中间件
-	store := cookie.NewStore([]byte("secret1111"))
+	//store := cookie.NewStore([]byte("secret1111"))
+
+	//分布式场景 session 存在 redis中
+	store, _ := redis.NewStore(10, "tcp", "localhost:6379", "", "", []byte("secret1111"))
 	r.Use(sessions.Sessions("mysession", store))
 
 	routers.V1Router(r)
